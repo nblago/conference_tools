@@ -1,0 +1,90 @@
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel} % change to your own language
+
+\usepackage[top=1.5cm,bottom=1cm,left=1cm,right=1cm,headsep=10pt,a4paper]{geometry} % Page margins
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{png/}} % Specifies the directory where pictures are stored
+
+% Non hifenize:
+\usepackage[none]{hyphenat}
+\usepackage{ifthen}
+\usepackage{scalefnt}
+\usepackage[listings,skins,breakable]{tcolorbox}
+
+
+\usepackage{xcolor} % Required for specifying colors by name
+% colors
+\definecolor{azul}{HTML}{002244}
+\definecolor{vermelho}{HTML}{600404}
+\definecolor{dourado}{HTML}{bb953d}
+
+
+
+\usepackage[pages=some]{background}
+
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=1,
+angle=0,
+contents={%
+  %\includegraphics[width=\paperwidth,height=\paperheight]{png/background}
+  }%
+}
+
+
+
+%% Command to insert the default page
+\newcommand{\para}[5]{
+\BgThispage
+~
+
+\begin{minipage}{\textwidth}
+%\vskip 3cm
+\vspace{-2cm}
+\centering
+\includegraphics[width=12cm]{png/iccub}
+\end{minipage}
+
+\vskip 3cm
+\begin{center}
+{\scalefont{1.5} \sc \color{vermelho} Name of your workshop}\\[10pt]
+{\scalefont{1.5} \sc \color{azul} University of Barcelona}\\\\
+{\scalefont{1.3} \sc \color{azul} DATE1 - DATE2 of MONTH YYYY -- Barcelona}\\
+\end{center}
+
+
+\hskip 10pt
+	\begin{center}
+\begin{minipage}{0.7\textwidth}
+	\scalefont{1.5}
+		
+		% ministrante de minicurso 
+		\ifthenelse{\equal{#3}{attendance}}{On behalf of the Scientific Committee we certify that {\sc #1} attended {\sc #4} the Workshop ``{\bf #2}'' held at the Faculty of Physics of the University of Barcelona, from the DATE1$^{\rm{th}}$ to the DATE2$^{\rm{th}}$ of MONTH YYYY. }{}
+
+		% participante de minicurso
+		\ifthenelse{\equal{#3}{poster}}{On behalf of the Scientific Committee, we certify that {\sc #1} presented a poster contribution to the Workshop ``{\bf #2}'' held at the Faculty of Physics of the University of Barcelona, from the DATE1$^{\rm{th}}$ to the DATE2$^{\rm{th}}$ of MONTH YYYY.\\}{}
+\end{minipage}
+	\end{center}
+
+%\vskip -1cm
+	\begin{minipage}{0.15 \textwidth}
+	~
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\scalefont{1.1}
+            \vspace{0.5cm}
+		\hskip 1pt\includegraphics[width=4cm]{png/signature}\\[0pt]
+		\rule{8cm}{1pt}\\[18pt]
+		Prof. Dr. Organizer\\
+		Workshop organizer \\
+		Barcelona, DATE1th of MONTH YYYY
+	\end{minipage}
+
+
+\vfill
+\newpage
+
+}
+
+
